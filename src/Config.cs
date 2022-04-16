@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace daiy
 {
-    // The app's config is a list of schemes (work, pet, 
+    // The app's config is a list of schemes (work, pet, food, sport)
+
+    // TODO: When adding non-daily tasks, enable deadlines so tasks come first f.e.
+    // TODO: Focus every day for an hour or two, Block calendar for that
+    // TODO: Tasks that carry the same timing settings as routines
 
     public class daiyConfig
     {
