@@ -13,6 +13,11 @@ namespace daiy.Data
 
     public class InListRange<T> : IRange<T> where T : IComparable
     {
+        public InListRange(List<T> values)
+        {
+            Values = values;
+        }
+
         public List<T> Values { get; set; }
 
         public bool IsInRange(T val) => Values.Any(listVal => val.CompareTo(listVal) == 0);
@@ -20,6 +25,11 @@ namespace daiy.Data
 
     public class IsRange<T> : IRange<T> where T : IComparable
     {
+        public IsRange(T value)
+        {
+            Value = value;
+        }
+
         public T Value { get; set; }
 
         public bool IsInRange(T val) => val.CompareTo(Value) == 0;
@@ -27,6 +37,12 @@ namespace daiy.Data
 
     public class MinMaxRange<T> : IRange<T> where T : IComparable
     {
+        public MinMaxRange(T min, T max)
+        {
+            Min = min;
+            Max = max;
+        }
+
         public T Min { get; set; }
         public T Max { get; set; }
 

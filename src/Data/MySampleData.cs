@@ -40,12 +40,27 @@ namespace daiy.Data
             var config = new daiyConfig
             {
                 Schemes = new List<DailyScheme> {
-                    new DailyScheme{Description="Daily"},
-                    new DailyScheme{Description="Work"},
-                    new DailyScheme{Description="Pets", SchemeTrigger= uiSelectables.CreateRoutineTrigger() },
-                    new DailyScheme{Description="Sport"},
+                    new DailyScheme{Description="Home", SchemeTrigger= uiSelectables.CreateRoutineTrigger()},
+                    new DailyScheme{Description="Work", SchemeTrigger= uiSelectables.CreateRoutineTrigger()},
+                    new DailyScheme{Description="Sport", SchemeTrigger= uiSelectables.CreateRoutineTrigger(),
+                        Routines= new List<DailyRoutine>{
+                            new DailyRoutine{Id=Guid.NewGuid(), Name="Training", ShouldAlarm= RoutineAlarm.Yes,
+                                Reccurence= new Reccurence{ TimesADay= new MinMaxRange<int>(1,2), Fit=ReccurenceFit.AsMuchAsPossible },
+                                Duration= new Duration{ DurationTime= TimeSpan.FromMinutes(15) } } } },
             }
             };
+        }
+    }
+
+    internal class UISelectables
+    {
+        public UISelectables()
+        {
+        }
+
+        internal IRoutineTrigger CreateRoutineTrigger()
+        {
+            throw new NotImplementedException();
         }
     }
 }
